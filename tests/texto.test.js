@@ -12,7 +12,7 @@ import {
 
 describe('capitalizar', () => {
   it('pone en mayúscula la primera letra', () => {
-    expect(capitalizar('hola')).toBe('HOLA');
+    expect(capitalizar('hola')).toBe('Hola');
   });
 
   it('respeta las letras con tilde o eñe', () => {
