@@ -110,3 +110,18 @@ All matched files use Prettier code style!
 ```
 
 `npm run lint` no muestra ningún error ni aviso.
+
+## Integración continua (opcional)
+
+Repositorio del ejercicio: <https://github.com/Javi7142/dwec-ud3-e02-funciones-texto>. El workflow está en [`.github/workflows/ci.yml`](.github/workflows/ci.yml): un único trabajo en `ubuntu-latest` con los pasos «Descargar el código», «Instalar Node.js 24 con caché de npm», «Instalar las dependencias» (`npm ci`), «Revisar el código con ESLint», «Comprobar el formato con Prettier» y «Ejecutar los tests».
+
+1. **Ejecución en verde:** <https://github.com/Javi7142/dwec-ud3-e02-funciones-texto/actions/runs/40570649630>
+2. **Captura de la ejecución en verde con sus pasos:**
+
+   ![Ejecución en verde con todos los pasos](img/ci-verde.jpg)
+
+3. **Ejecución en rojo provocada a propósito:** <https://github.com/Javi7142/dwec-ud3-e02-funciones-texto/actions/runs/40570779747>. Cambié en `tests/texto.test.js` el valor esperado del primer test de `capitalizar` (de `'Hola'` a `'HOLA'`) y lo subí: la ejecución falló en el paso **«Ejecutar los tests»**, con ESLint y Prettier todavía en verde.
+
+   ![Ejecución en rojo con el paso que falla](img/ci-rojo.jpg)
+
+   Después deshice el cambio y la ejecución volvió a verde: <https://github.com/Javi7142/dwec-ud3-e02-funciones-texto/actions/runs/40570884723>.
